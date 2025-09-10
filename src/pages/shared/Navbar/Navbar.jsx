@@ -1,16 +1,18 @@
 import React from 'react';
 import { NavLink } from 'react-router';
 import ProFastLogo from '../ProFastLogo/ProFastLogo';
+import { IoMdArrowUp } from "react-icons/io";
 
 const Navbar = () => {
     const navItems = <>
-        <li><NavLink to="/">Home</NavLink></li>
-        <li><NavLink to="/about">About</NavLink></li>
-        <li><NavLink to="/dashboard">Dashboard</NavLink></li>
-        <li><NavLink to="/dashboard">Be a Rider</NavLink></li>
+        <li><NavLink to="/" className={({ isActive }) => isActive ? "active-link" : ""}>Home</NavLink></li>
+        <li><NavLink to="/about" className={({ isActive }) => isActive ? "active-link" : ""}>About</NavLink></li>
+        <li><NavLink to="/dashboard" className={({ isActive }) => isActive ? "active-link" : ""}>Dashboard</NavLink></li>
+        <li><NavLink to='/coverage' className={({ isActive }) => isActive ? "active-link" : ""}>Coverage</NavLink></li>
+        <li><NavLink to="/beARider" className={({ isActive }) => isActive ? "active-link" : ""}>Be a Rider</NavLink></li>
     </>
     return (
-        <div className="navbar bg-base-100 shadow-sm">
+        <div className="navbar bg-bg">
             <div className="navbar-start">
                 <div className="dropdown">
                     <div tabIndex={0} role="button" className="btn btn-ghost lg:hidden">
@@ -29,8 +31,14 @@ const Navbar = () => {
                     {navItems}
                 </ul>
             </div>
-            <div className="navbar-end">
-                <a className="btn">Button</a>
+            <div className="navbar-end space-x-3">
+                <button className='btn text-accent rounded-lg border-secondary'>Sign In</button>
+                <button className='btn btn-primary text-accent-content rounded-lg border-none'>Be A Rider</button>
+                <div className='bg-black w-10 h-10 rounded-full flex items-center justify-center cursor-pointer'>
+                    <div className=''>
+                        <IoMdArrowUp className='text-primary rotate-45' size={20} />
+                    </div>
+                </div>
             </div>
         </div>
     );
